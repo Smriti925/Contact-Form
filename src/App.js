@@ -1,25 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import FormTwo from "./Components/FormTwo";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="">
+      <div className="text-2xl md:text-3xl py-2 font-sans flex justify-center item-center">
+        Get In Contact
+      </div>
+      <FormTwo />
     </div>
   );
 }
-
 export default App;

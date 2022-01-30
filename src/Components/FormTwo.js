@@ -8,6 +8,7 @@ function FormTwo() {
   const [lastName, setLastName] = useState("");
   const [msg, setMsg] = useState("");
   const [optionValue, setOptionValue] = useState("");
+  const [statusCode, setStatusCode]=useState('');
 
   function submitHandler(e) {
     e.preventDefault();
@@ -15,7 +16,20 @@ function FormTwo() {
 
     axios
       .post("https://retoolapi.dev/ES2DTp/data", tempObj)
-      .then((response) => console.log(response.data));
+      .then((response) => {if(response.status === 201)
+      {
+        setFirstName('');
+        setLastName('');
+        setMsg('');
+        setOptionValue('');
+      }});
+      // const tempresponse=response;
+      // setStatusCode(tempresponse.status);
+      // if (statusCode === 201)
+      // {
+      //   console.log('status true');
+      // }
+      
   }
 
   const tempObj = {
@@ -33,8 +47,9 @@ function FormTwo() {
           <label className="">FirstName </label>
           <input
             type="text"
+            value={firstName}
             className=" rounded-md p-1 w-48 md:w-60 text-black"
-            type="text"
+           
             onChange={(e) => {
               setFirstName(e.target.value);
             }}
@@ -44,6 +59,7 @@ function FormTwo() {
           <label className="">LastName</label>
           <input
             type="text"
+            value={lastName}
             className=" rounded-md p-1 w-48 md:w-60 text-black"
             onChange={(e) => {
               setLastName(e.target.value);
@@ -55,6 +71,7 @@ function FormTwo() {
           <textarea
             className=" h-28 rounded-md p-1 w-48 md:w-60 text-black"
             type="text"
+            value={msg}
             onChange={(e) => {
               setMsg(e.target.value);
             }}
@@ -67,7 +84,7 @@ function FormTwo() {
             <input
               type="radio"
               name="medium"
-              value="Instagram"
+              value={optionValue}
               className=""
               onClick={(e) => setOptionValue(e.target.value)}
             ></input>
@@ -75,14 +92,14 @@ function FormTwo() {
             <input
               type="radio"
               name="medium"
-              value="Facebook"
+              value={optionValue}
               onClick={(e) => setOptionValue(e.target.value)}
             ></input>
             <span className="mr-3">Facebook</span>
             <input
               type="radio"
               name="medium"
-              value="LinkedIn"
+              value={optionValue}
               onClick={(e) => setOptionValue(e.target.value)}
             ></input>
             <span className="mr-3">LinkedIn</span>

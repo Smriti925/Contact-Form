@@ -1,13 +1,25 @@
 import FormTwo from "./Components/FormTwo";
+import SaveResponse from "./Components/SaveResponse";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import TestSlider from "./Components/TestSlider";
 
 function App() {
   return (
-    <div className="">
-      <div className="text-2xl md:text-3xl py-2 font-sans flex justify-center item-center">
-        Get In Contact
+    <Router>
+      <div className="">
+        <Switch>
+          <Route exact path="/">
+            <FormTwo />
+          </Route>
+          <Route path="/page2">
+            <SaveResponse />
+          </Route>
+          <Route path="/page3">
+            <TestSlider />
+          </Route>
+        </Switch>
       </div>
-      <FormTwo />
-    </div>
+    </Router>
   );
 }
 export default App;

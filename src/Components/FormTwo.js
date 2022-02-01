@@ -8,7 +8,7 @@ function FormTwo() {
   const [lastName, setLastName] = useState("");
   const [msg, setMsg] = useState("");
   const [optionValue, setOptionValue] = useState("");
-  const [statusCode, setStatusCode]=useState('');
+  const [statusCode, setStatusCode] = useState("");
 
   function submitHandler(e) {
     e.preventDefault();
@@ -16,20 +16,20 @@ function FormTwo() {
 
     axios
       .post("https://retoolapi.dev/ES2DTp/data", tempObj)
-      .then((response) => {if(response.status === 201)
-      {
-        setFirstName('');
-        setLastName('');
-        setMsg('');
-        setOptionValue('');
-      }});
-      // const tempresponse=response;
-      // setStatusCode(tempresponse.status);
-      // if (statusCode === 201)
-      // {
-      //   console.log('status true');
-      // }
-      
+      .then((response) => {
+        if (response.status === 201) {
+          setFirstName("");
+          setLastName("");
+          setMsg("");
+          setOptionValue("");
+        }
+      });
+    // const tempresponse=response;
+    // setStatusCode(tempresponse.status);
+    // if (statusCode === 201)
+    // {
+    //   console.log('status true');
+    // }
   }
 
   const tempObj = {
@@ -42,14 +42,16 @@ function FormTwo() {
 
   return (
     <div className="flex justify-center">
-      <div className="bg-gray-800 rounded-lg text-white w-80 md:w-96">
+      <div className="bg-gray-800 rounded-lg text-white w-80 md:w-96 mt-10">
+        <div className="text-2xl md:text-3xl py-2 font-sans flex justify-center">
+          Get In Contact
+        </div>
         <div className="p-2 bg-gray-800 rounded-md flex justify-between">
           <label className="">FirstName </label>
           <input
             type="text"
             value={firstName}
             className=" rounded-md p-1 w-48 md:w-60 text-black"
-           
             onChange={(e) => {
               setFirstName(e.target.value);
             }}
